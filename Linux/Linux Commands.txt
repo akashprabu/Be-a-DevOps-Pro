@@ -1,0 +1,22 @@
+Linux Commands:
+
+ls 									- list all files and folders in the current location.
+pwd 								- show the current path we are in.
+cd folder_name 						- change directory.
+cd .. 								- get out of the current folder to the outer path.
+cd ~ 								- takes you to the home directory.
+cd /                                - takes you to the root directory
+cd /etc                             - etc folder contains linux systems's configuration files. There are over 200 files present.
+ls -l 								- shows all the permission of the files and folders present in the current folder.
+ls -l files_name or folder_name 	- shows the specific file or folder permissions.
+mkdir 								- creates a folder in current location.
+touch file_name 					- used to create the files.
+whoami 								- shows which user is logged in at present.
+su - root 							- change to root user.
+su - user_name 						- in user_name give the user name that you want ot login in.
+vim file_name 						- it opens a vim editor to edit the file.
+cat file_name 						- displays the information present in the file.
+sudo yum update 					- updates the latest software update in CentOS.
+sudo yum -y update 					- automatically responds yes for the permission during the update in CentOS.
+rm folder_name or file_name     	- removes the file or folder.
+passwd 								- to change the password of the current logged in user.
