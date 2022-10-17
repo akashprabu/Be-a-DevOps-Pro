@@ -1,29 +1,76 @@
-Linux Commands:
+----------------------------------------------------------------------- Linux Commands -----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-ls 									- list all files and folders in the current location.
+
+
+-------------------------------------------------------------------- User Information -----------------------------------------------------------------------------------------
+
+
+who 								- shows Login name of the user, Date & Time of login and Remote host name of the user.
+whoami 								- it will display the system's username.
+id								- it displays the user identification (real and effective group id's).
+groups								- it displays all the groups for which the user is belonging to.
+users								- it displays usernames of all the users logged in.
+lastlog								- it displays the details of a recent login of all users. 
+
+
+------------------------------------------------------------- Ways to login as a sudo user in Linux OS ------------------------------------------------------------------------
+
+
+sudo -i								- change to root user.
+sudo -s								- change to root user.
+sudo su 							- change to root user.
+su 								- change to root user.
+su - root 							- change to root user.
+su - user_name 							- in user_name give the user name that you want ot login in.
+
+
+------------------------------------------------------------------ File & Directory commands ----------------------------------------------------------------------------------
+
+** Use Tab key for auto completion
+
+pwd 								- show the current path we are in or prints the present working directory.
+ls 								- list all files and folders in the current location.
 ls -a 								- displays all the files and folders including hidden files as well.
+ls -l 								- shows all the permission of the files and folders present in the current folder.
+ls -l files_name or folder_name 				- shows the specific file or folder permissions.
 ls -al								- displays all the files and folders including hidden files with permissions.
 ls -i 								- displays all the files and folders with the index number.
 ls -ltr								- displays all the files and folders with permissions in last modified order.
-pwd 								- show the current path we are in.
-cd folder_name 						- change directory.
+cd folder_name 							- change directory.
 cd .. 								- get out of the current folder to the outer path.
 cd ~ 								- takes you to the home directory.
-cd /                                - takes you to the root directory
-cd /etc                             - etc folder contains linux systems's configuration files. There are over 200 files present.
+cd /                               			        - takes you to the root directory.
+cd /etc                            			        - etc folder contains linux systems's configuration files. There are over 200 files present.
 cd /home							- to navigate the home directory.
-ls -l 								- shows all the permission of the files and folders present in the current folder.
-ls -l files_name or folder_name 	- shows the specific file or folder permissions.
+touch file_name1 file_name2 	                        	- used to create the files.
 mkdir 								- creates a folder in current location.
-touch file_name 					- used to create the files.
-whoami 								- shows which user is logged in at present.
-su - root 							- change to root user.
-su - user_name 						- in user_name give the user name that you want ot login in.
-vim file_name 						- it opens a vim editor to edit the file.
-esc and :q                          - to quit the vim editor.
+rm file_name     						- removes the file.
+rmdir								- removes the folder.
+vim file_name 							- it opens a vim editor to edit the file.
+esc and :q                         			        - to quit the vim editor.
 esc and :wq							- to save and quit the vim editor.
-cat file_name 						- displays the information present in the file.
-sudo yum update 					- updates the latest software update in CentOS.
-sudo yum -y update 					- automatically responds yes for the permission during the update in CentOS.
-rm folder_name or file_name     	- removes the file or folder.
+ctrl + z     					         	- this command will stop the vim editor and exit.
+cat file_name 							- displays the information present in the file.
+
+
+------------------------------------------------------------------ Installing Packages -----------------------------------------------------------------------------------------
+
+** yum (Yellow Dog Updater)is used for CentOS as package management systems.
+
+yum install pacakage_name					- Install package with help of yum command which will look like.
+yum info package_name 						- this is going to display brief detail about the package.
+yum remove package_name 					- this is going to remove the package.
+./file_name 							- installing a package from a localfile (But it will throw an error message because of the permission of the package, so we need to change 
+						 		  the permission by using the chmod command).
+
+
+------------------------------------------------------------------ Others commands ---------------------------------------------------------------------------------------------
+
+
+sudo yum update 						- updates the latest software update in CentOS.
+sudo yum -y update 						- automatically responds yes for the permission during the update in CentOS.
 passwd 								- to change the password of the current logged in user.
+clear								- to clear the terminal, but the when you scroll up you can see the pervious commands and its results.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
