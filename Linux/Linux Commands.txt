@@ -27,6 +27,7 @@ su - user_name 							- in user_name give the user name that you want ot login i
 
 ------------------------------------------------------------------ File & Directory commands ----------------------------------------------------------------------------------
 
+
 ** Use Tab key for auto completion
 
 pwd 								- show the current path we are in or prints the present working directory.
@@ -56,6 +57,7 @@ cat file_name 							- displays the information present in the file.
 
 ------------------------------------------------------------------ Installing Packages -----------------------------------------------------------------------------------------
 
+
 ** yum (Yellow Dog Updater)is used for CentOS as package management systems.
 
 yum install pacakage_name					- Install package with help of yum command which will look like.
@@ -63,6 +65,25 @@ yum info package_name 						- this is going to display brief detail about the pa
 yum remove package_name 					- this is going to remove the package.
 ./file_name 							- installing a package from a localfile (But it will throw an error message because of the permission of the package, so we need to change 
 						 		  the permission by using the chmod command).
+
+
+------------------------------------------------------------------ Disk Usage Commands -----------------------------------------------------------------------------------------
+
+
+du path_of_the_directory					- to find the disk usage of the directory.
+du -h path_of_the_directory					- to find the disk usage of the directory in human readable format.
+du -sh path_of_the_directory					- to find the total disk usage of the directory in human readable format.
+ah -sh path_of_the_directory					- to find the disk usage of all the nested folders and files in the directory human readable format.
+
+
+------------------------------------------------------------------ Systems & Hardware Information ------------------------------------------------------------------------------
+
+
+uname -a							- 'a' here is for all
+uname -s							- to know the kernel name
+uname -r							- to print the kernel release version
+uname -m							- to print the architecture of the (32 bit or 64 bit operating system in case of windows Operating System)
+uname -o							- to print the operating system
 
 
 ------------------------------------------------------------------ Others commands ---------------------------------------------------------------------------------------------
