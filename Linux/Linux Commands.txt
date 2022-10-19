@@ -45,6 +45,8 @@ cd /                               			        - takes you to the root directory.
 cd /etc                            			        - etc folder contains linux systems's configuration files. There are over 200 files present.
 cd /home							- to navigate the home directory.
 touch file_name1 file_name2 	                        	- used to create the files.
+cp file1_name.txt file2_name.txt				- copies contents of file1_name.txt to file2_name.txt.
+mv file_name.txt path_of_the_directory				- moves the file from current location to path_of_the_directory location.
 mkdir 								- creates a folder in current location.
 rm file_name     						- removes the file.
 rmdir								- removes the folder.
@@ -53,6 +55,10 @@ esc and :q                         			        - to quit the vim editor.
 esc and :wq							- to save and quit the vim editor.
 ctrl + z     					         	- this command will stop the vim editor and exit.
 cat file_name 							- displays the information present in the file.
+echo “....” >file_name.txt					- creates a file_name.txt if it does not exits and adds the content to the file. If the file exits then it overrides
+								  the contents present in the file with the given content.
+echo “....”>>file_name.txt	 				- creates a file_name.txt if it does not exits and adds the content to the file. If the file exits then it appends 
+								  the given content in a new line. 
 
 
 ------------------------------------------------------------------ Installing Packages -----------------------------------------------------------------------------------------
