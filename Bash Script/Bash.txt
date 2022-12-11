@@ -1,0 +1,95 @@
+Bash Scripting
+
+- We can use plain text editor.
+- Terminal emulator
+- Bash
+
+In MacOs bash is pre-installed so we can use bash or terminal.
+Linus distros already has bash
+
+Bash : Bourne Again Shell
+Extension: .sh
+
+Step 1: create a new empty text .sh
+Step 2: #!/bin/bash -> SheBang (This should be present in the file top so that the shell knows that it is a bash script and which ever shell we move on it will identify it as a bash and '#' means pound, '!' means bang in UK).
+Step 3: chmod +x (gives access to execute).
+Step 4: # used in comments.
+
+Example:
+
+#!/bin/bash
+
+echo "Hello World"
+echo "Current working directory $(pwd)" # Gives you current working directory
+echo "Today's Date & Time : $(date)"   # Gives you current time and date
+var1="Deadpool"
+echo $var1 #using commments : this will print Deadpool
+
+Step 5: ./ is used to run a file.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-> Defining variables:
+
+Variables contrainsts : only letters (A-Z or a to z), numbers(0 to 9) or underscore ( _ ).
+
+Example:
+		variable_xyz= variable_value
+		VAR1="Develop"
+		Var2= 111
+Never put space next to equal sign : while defining a varialbe there should not be any space in between them. or else it will consider it as a process instead of command.
+
+Example:
+		Var1 = "Develop"
+		echo $Var1
+	Output:
+	    ./shell.sh: line 10: var1: command not found
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-> Accessing Variables:
+	echo $variable_xyz
+	echo $VAR1
+	echo $Var2
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-> Using readonly command
+
+#!/bin/bash
+
+var1="Deadpool"
+readonly var1
+echo $var1
+var1="Ironman"
+echo $var1
+
+This allows us to assign value to the var1 before the declaration of the readonly command. After declaring the command we can only read the value what is present inside it. we cannot assign the value ironman to the var1.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--> Using unset command
+
+by using unset command you are delete the variable during program execution.
+
+var1="Deadpool"
+echo $var1
+var1="Ironman"
+echo $var1
+unset var1
+echo $var1
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---> Using If and Else condition
+
+ans=$RANDOM # It is an internal Bash function (not a constant) that returns a pseudorandom integer in the range 0 - 32767
+if(($ans%2)) # if condition
+then
+    echo "$ans is a ODD number"
+else
+    echo "$ans is a EVEN number"
+fi # This is how you end a if else condition
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
