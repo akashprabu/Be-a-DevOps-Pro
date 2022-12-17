@@ -27,7 +27,7 @@ echo $var1 #using commments : this will print Deadpool
 
 Step 5: ./ is used to run a file.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -> Defining variables:
 
@@ -45,14 +45,14 @@ Example:
 	Output:
 	    ./shell.sh: line 10: var1: command not found
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -> Accessing Variables:
 	echo $variable_xyz
 	echo $VAR1
 	echo $Var2
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -> Using readonly command
 
@@ -66,7 +66,7 @@ echo $var1
 
 This allows us to assign value to the var1 before the declaration of the readonly command. After declaring the command we can only read the value what is present inside it. we cannot assign the value ironman to the var1.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --> Using unset command
 
@@ -79,9 +79,37 @@ echo $var1
 unset var1
 echo $var1
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---> Using integer comparison
+
+For integer comparison we use [] and for binary operations we use (()) in if,else condition.
+
+ -eq -> equal to if["$a" -eq "$b"]
+ -ne -> is not equal if["$a" -ne "$b"]
+ -gt -> is greater than if["$a" -gt "$b"]
+ -ge -> greater than or equal to if["$a" -ge "$b"]
+ -lt -> is less than if["$a" -lt "$b"]
+ < -> is less than if["$a" < "$b"]
+ <= -> is less than or equal to if["$a" <= "$b"]
+ > -> is greater than if["$a" > "$b"]
+ >= -> is greater than or equal to if["$a" >= "$b"]
+
+
+ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ---> Using If and Else condition
+
+if <expersion>; then
+	<command-to-execute>
+elif <expersion>; then
+	<command-to-execute>
+else
+	<command-to-execute>
+fi
+
+Example 1:
 
 ans=$RANDOM # It is an internal Bash function (not a constant) that returns a pseudorandom integer in the range 0 - 32767
 if(($ans%2)) # if condition
@@ -91,5 +119,279 @@ else
     echo "$ans is a EVEN number"
 fi # This is how you end a if else condition
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Example 2:
 
+#!/bin/bash
+
+read -p "Enter a number :" number
+if [100 -ge $number]
+then
+echo "$number is greater than 100"
+elif [100 -eq $number]
+then
+echo "$number is equal to 100"
+else
+echo "$number is less than 100"
+fi
+
+Example 3:
+
+#!/bin/sh
+
+if [ 10 -gt 8 ] && [ 100 -eq 100 ]
+then
+echo "Worked"
+else
+echo "Not Worked"
+fi
+
+Example 4:
+
+Note: Make sure to give value after (./file_name.sh). Because we are using argument ($1).
+ex: ./temp2.sh 100
+
+#!/bin/sh
+
+if [ $1 -eq 1 ] && [ $1 -gt 0 ]
+then
+echo "$ans is even"
+else
+echo "$ans is odd"
+fi
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Loop Syntax:
+
+for variable in list
+Do
+commands
+Done
+
+for((expression1;expression2;expression3))
+do
+commands
+done
+
+Example 1:
+
+#!/bin/bash
+
+learn="Hey welcome to DevOps Pro Course"
+
+for i in $learn
+do
+echo $i
+done
+echo "loop is completed"
+
+Example 1 Output:
+
+Hey
+welcome
+to
+DevOps
+Pro
+Course
+loop is completed
+
+Example 2:
+
+To print a series:
+
+for i in {1..10}
+do
+echo $i
+done
+echo "loop is completed"
+
+Example 2 Output:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+loop is completed
+
+
+While Loop:
+
+Syntax:
+
+while [expression];
+do
+commands;
+commands;
+done
+
+Example 1:
+
+#!/bin/bash
+
+read -p "Enter Starting Number  = " snum
+read -p "Enter Ending Number = " enum
+
+while [[ $snum -lt $enum ]];
+do
+echo "Working $snum"
+((++snum))
+done
+echo "While Loop Ended"
+
+Example 1 Output:
+
+Enter Starting Number  = 10
+Enter Ending Number = 20
+Working 10
+Working 11
+Working 12
+Working 13
+Working 14
+Working 15
+Working 16
+Working 17
+Working 18
+Working 19
+While Loop Ended
+
+Example 2:
+
+read -p "Enter Starting Number  = " ssnum
+read -p "Enter Ending Number = " eenum
+
+while [[ $ssnum -lt $eenum || $ssnum == $eenum ]]
+do
+echo "Working $ssnum"
+((++ssnum))
+done
+echo "While Loop Ended"
+
+Example 2 Output:
+
+Enter Starting Number  = 10
+Enter Ending Number = 20
+Working 10
+Working 11
+Working 12
+Working 13
+Working 14
+Working 15
+Working 16
+Working 17
+Working 18
+Working 19
+Working 20
+While Loop Ended
+
+Example 3:
+
+while :
+do
+echo "Hello World"
+done
+
+Example 3 Output:
+
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+.
+.
+.
+.
+.
+
+
+Until Loop:
+
+Syntax:
+until [ expression]
+do
+command
+done
+
+Example 1:
+                                                                      
+#!/bin/bash
+
+i=1
+until [ $i -gt 10 ]
+do
+echo "Hello World"
+((++i))
+done
+
+Example 1 Output:
+
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+
+Example 2:
+
+a=1
+b=0
+max=5
+until [[ $a -gt $max || $b -gt $max ]]
+do
+echo "a = $a AND b = $b"
+((++a))
+((++b))
+done
+
+Example 2 Output:
+
+a = 1 AND b = 0
+a = 2 AND b = 1
+a = 3 AND b = 2
+a = 4 AND b = 3
+a = 5 AND b = 4
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Random Password Generator : 
+
+Code:
+
+#!/bin/bash
+
+echo "Welcome to password generator !!!"
+
+echo "Enter the password length = "
+
+read PASS_LENGTH
+
+for p in $(seq 1 5);
+do
+        openssl rand -base64 48 | cut -c1-$PASS_LENGTH
+done
+
+Output:
+
+Welcome to password generator !!!
+Enter the password length = 
+10
+9fBBuk43UL
+A4qa0cMOzo
+t55LreKEi/
+MR+Z8uXoac
+PcMnGZ8MbF
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
