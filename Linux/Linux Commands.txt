@@ -104,7 +104,7 @@ Step 6: httpd -->(Status Check) to findout whether the server is started.
 
 Note: Whenever you start your machine, you have to run the above series of commands to start your apache server. To avoid that and automate the process. Run the command [ systemctl enable httpd ]. This command will make sure that the system will always run apache server when it is started.
 
-/var/www/html is the directory where your website files are present. You can directly use cd command to navigate to the path and add the index.html file. To display on the website. or use the command echo "Hey this is mu website" > index.html .
+/var/www/html is the directory where your website files are present. You can directly use cd command to navigate to the path and add the index.html file. To display on the website. or use the command echo "Hey this is mu website" > /var/www/html/index.html .
 
 
 

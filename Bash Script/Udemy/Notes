@@ -1,0 +1,140 @@
+Bash Script Contents:
+
+Command line arguments processing
+Input and output, include user input
+Variables
+Logining
+If else statements
+Loops
+Exit statuses
+Functions
+Wildcards
+Debugging tips
+Case statments
+Bash shell options
+More
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Scripts: 
+
+Contians a series of commands. Which are executed by interpreter. Anything which we type in a command line we can put it in a script. Scripts are used in automating tasks.
+Any scripts that you have should be executable. We can make them executable by using the command chmod +x file_name.sh or chmod 755 file_name.txt.
+#! --> Shebang
+If the file does not contain a shebang the commands are executed using you shell. You might get lucky or hopefully. Differnt shells have slightly varying syntax.
+
+Note :
+		To print any statment we use echo. In bash, we should give proper indentation.
+		Example:
+				echo "Hello World"
+		Here there should be only one space between the echo and the "Hello world".
+		Invaild case:
+				echo    "Hello World"
+
+Example 1:
+
+	script.sh
+
+		#!/bin/bash         
+		echo "Hello world"
+
+	making executatble file:
+
+		chmod 755 script.sh
+
+	running the script:
+
+		./script.sh
+		Note : make sure you are in the folder or the directory of the file to execute or else give the path to execute.
+
+when a script is defined by shebang it is followed by interpreter.
+
+Example 2:
+
+	#!/bin/csh
+	echo "Hello world"
+
+	#!/bin/ksh
+	echo "Hello world"
+
+	#!/bin/zsh
+	echo "Hello world"
+
+The csh,ksh and zsh are different interpreters.
+
+More than just shell script:
+	
+	#!/usr/bin/python
+	print "This a python script"
+
+	chmod 755 hi.py
+	./hi.py
+	This is a python script
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Variables:
+
+Variables are storage location that have a name. Name-value pairs. Variables are case sensitive. By convention variables are uppercase.	
+syntax:
+	VARIABLE_NAME="Value"
+variables are case sensitive. By convention variables are uppercase. There should not be any space between the varialbe, equal and value.
+
+Vaild:
+	
+	NAME="AKASH"
+
+Invalid:
+	
+	NAME = "AKASH"
+	NAME= "AKASH"
+	NAME ="AKASH"
+
+To access the value of the variable we use a dollar sign $VARIABLE_NAME or ${VARIABLE_NAME}. The curly brackets are optional.
+
+Example:
+ 	
+ 	PLACE="Office"
+ 	echo "I am at $PLACE"
+
+ 	Output:
+ 			I am at Office
+
+The cases where we use the {}.
+
+Example:
+
+	ACTIVITY="Work"
+	echo "I am ${ACTIVITY}ing"
+
+	Output:
+			I am Working
+
+	If we did not use the curly brackets here then the output will [ I am ]. The interpretur is trying to find the variable $ACTIVITYing. The curly brackets are used to fetch the value of the variable first and attachs with the followed string characters.
+
+We can use the output of a command to a variable. by using $().
+
+Example:
+	
+	NAME=$(hostname)
+	echo "$NAME"
+
+Constraints:
+	
+	We can use letters, digits and special character to define the name of a variable. But there are some constraints. In spacial characters only underscore is allowed. A variable can start with letter or underscore but not with digit.
+
+	Example:
+
+	Vaild:
+
+			_name3="Hello"
+			name_3="Hello"
+			name3_="Hello"
+			firstName="Hello"
+
+	Invalid:
+
+			3_name="Hello"
+			3name_="Hello"
+			name-3="Hello"
+			name@3@="Hello"
