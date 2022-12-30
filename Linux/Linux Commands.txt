@@ -23,6 +23,7 @@ sudo su 							- change to root user.
 su 								- change to root user.
 su - root 							- change to root user.
 su - user_name 							- in user_name give the user name that you want ot login in.
+sudo su - user_name					- in user_name give the user name that you want ot login in. 
 
 
 ------------------------------------------------------------------ File & Directory commands ----------------------------------------------------------------------------------
@@ -90,6 +91,21 @@ uname -s							- to know the kernel name
 uname -r							- to print the kernel release version
 uname -m							- to print the architecture of the (32 bit or 64 bit operating system in case of windows Operating System)
 uname -o							- to print the operating system
+
+
+------------------------------------------------------------------ Using Appache Server ---------------------------------------------------------------------------------------------
+
+Step 1: Login as root user. sudo su or anyother root user login command.
+Step 2: update the package. In case of Amazon Linux 2 machine use yum update -y.
+Step 3: use systemctl start httpd.
+Step 4: Incase httpd is not found, use yum install httpd.
+Step 5: again try step 4.
+Step 6: httpd -->(Status Check) to findout whether the server is started.
+
+Note: Whenever you start your machine, you have to run the above series of commands to start your apache server. To avoid that and automate the process. Run the command [ systemctl enable httpd ]. This command will make sure that the system will always run apache server when it is started.
+
+/var/www/html is the directory where your website files are present. You can directly use cd command to navigate to the path and add the index.html file. To display on the website. or use the command echo "Hey this is mu website" > /var/www/html/index.html .
+
 
 
 ------------------------------------------------------------------ Others commands ---------------------------------------------------------------------------------------------
