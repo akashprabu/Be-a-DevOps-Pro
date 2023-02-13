@@ -1,0 +1,114 @@
+<---------------------------------------------------------------------------- AWS Services Notes --------------------------------------------------------------------------->
+
+
+
+Elastic Load Balancing and Auto Scaling group:
+
+Scaling:
+		Scalability is the ability of service or resource to adapt to a larger loads by making the hardware stronger, example EC2 machine. There are two types of scaling Vertical scaling and horizontal scaling. Vertical scaling means to increase or decrease it capacity according to the incoming load like t2 micro to t2 large. whereas horzizontal scaling means to add no of resources.
+
+Elasticity:
+			Once the system is scalable. Elasticity means it has some auto scaling group which will scale according to the incoming load. It is a pay-per use, cloud friendly, cost optimized and match demand.
+
+Elastic Load Balancing: 
+						It is a AWS managed service which handles and routes the traffic to downstream for example EC2 Machine. Since it is a AWS managed service we don't have to provision them. It handles accross the availability zones. It has internal health check function which checks which machine is healthy to route traffic, handles failure and it makes availabilty of the product/ working process more active. We can expose single point of access (DNS) to application. Provides SSL termination (HTTPS) to your websites. We have to configure to the resources and AWS will upgrade and maintain the ELB.
+
+	There are four types of ELB :
+								 1.) Application Load Balancing (Layer 7)
+								 2.) Network Load Balancing (Layer 4)
+								 3.) Gateway Load Balancing (Layer 3)
+								 4.) Classic Load Balancing (Layer 7 and Layer 4)
+
+	1.) Application Load Balancing (Layer 7):
+												Used for HTTP, HTTPS & gRPC protocol requests. HTTP routing features and Static URL.
+
+	2.) Network Load Balancing (Layer 4): 
+										 	Used for TCP & UDP protocal requests. Can handle millions of requests per second. Static IP thorugh Elastic IP.
+
+    3.) Gateway Load Balancing (Layer 3):
+    										Follows GENEVE Protocol on IP Packets. It routes traffic to firewalls that manage your EC2 instances. It is like a intrusion detection. If the packets are valid it then routes the traffic to downstreams.
+
+	4.) Classic Load Balancing (Layer 7 and Layer 4):
+														This protocol handles both Layer 7 and Layer 4 protocol requests. But it is getting retired in 2023.
+
+
+Auto Scaling Group:
+					It is a service under EC2. It helps us Scaling in and Scaling out of instances depending upon the load. We can set the minimum, actual/desired and maximum capacity of instances so that we can ensure that it does not scaling out of range and scale in less than the range. It is a cost optimized feature because it only runs at a optimal capacity. It automatically registers and deregisters healthy and unhealthy instances automatically. In realtime use case it is used in web applications.
+
+	There are 3 types of Auto Scaling groups:
+												1.) Manual Scaling
+												2.) Dynamic Scaling
+												3.) Predictive Scaling  
+		1.) Manual Scaling:
+							We manually update the size of the instances to scale.
+
+		2.) Dynamic Scaling:
+							Simple and Step Scaling:
+													Here we use cloudwatch alarm to scale out and scale in the instances. Like if the usage of the instance are greater than 40% then we trigger 2 more intances. If the usage of the instacne are less than 30% then we reduce the instance by 1. It is totally depend upon our configuration.
+							Target Scaling:
+											I want the average usage of the instances to be around 40%.
+							Scheduled Scaling:
+												It is based on the experince of the person. Like the person know that on every friday the traffice gets increased due weekends or business criteria. Then on every friday we increase the instance count.
+
+		3.) Predictive Scaling:
+								Here we are using machine learning to predict the future load/traffic based on the previous load/traffic history so that we provision the instances before the load/traffic enters. We are forecasting.
+
+Amazon S3 (Simple Storage Service):
+									It is a storage service offered by AWS. They are advertised as infinite storage. They are the backbone of websites. Many AWS services use S3 for integration. We can store whatever we want. If a disaster happens in the region, then it can be recovered. We can use them for apllication hosting, media hosting, static websies, software delivery and use them for data analytics. It is also used in hybrid model, like if you have an on premises model but you wish to use the storage then you can use it. We have archieve files which allows you to store the files and retrive it later at every cheap cost.
+
+									They are shown as global service. But they are defined in regional level. The bucket names should be unique accross all the accounts in the different region and globally unique too. These are some naming convention we follow. They must lowercase letter, No uppercase letter and No underscores. Character length should be 3 to 63. Objects in the buckets have key. The key is defined as prefix + object name. An object can have a size upto 5TB. and if the object size is more than 5GB then it should be uploaded as "multi-part upload", which means it will be broken down in size and store it in the S3. 
+									For example :
+									1.) s3://my-bucket/object_name.txt 
+										key: object_name.txt
+									2.) s3://my-bucket/folder_name/object_name.txt 
+										key: folder_name/object_name.txt
+
+									Storage Class:
+												 	• Amazon S3 Standard - General Purpose
+													• Amazon S3 Standard-Infrequent Access (IA) 
+													• Amazon S3 One Zone-Infrequent Access
+													• Amazon S3 Glacier Instant Retrieval
+													• Amazon S3 Glacier Flexible Retrieval
+													• Amazon S3 Glacier Deep Archive
+													• Amazon S3 Intelligent Tiering
+									AWS Snow Family:
+													Data migration:
+																	• SnowCone
+																	• SnowBall
+																	• SnowMobile
+													Edge Computing:
+																	• SnowCone
+																	• SnowBall
+									Storage Gateway:
+													It is a way to connect your on premesis infrastructure with S3 Bucket.
+
+Data Analysis:	
+				Relational Databases:
+										We store data in a structured schema. We can query them, They are relational with different datasets. They are fexible and scaling is hard.
+										Examples:
+													1.) MySQL
+													2.) MariaDB
+													3.) PostgresSQL
+													4.) Amazon Aurora
+													5.) Oracle
+													6.) Microsoft SQL Server
+
+				NoSQL Databases:
+									We store data in a fexible schema. We can Query them, They are stored in the form of JSON or XML. We cannot link the table with another table like RDS. So whatever the data you want to store, it must be under a single table.
+									Examples:
+												1.) DynamoDB
+												2.) DocumentDB
+
+				• Relational Databases - OLTP	: RDS & Aurora (SQL)
+				• Differences between Multi-AZ, Read Replicas, Multi-Region
+				• In-memory Databases			: ElastiCache
+				• Key/Value Databases			: DynamoDB (serverless) & DAX (cache for DynamoDB)
+				• Warehouse - OLAP				: Redshift (SQL)
+				• HadoopCluster					: EMR
+				• Athena						: query data on Amazon S3 (serverless & SQL)
+				• QuickSight					: dashboards on your data (serverless)
+				• DocumentDB					: “AuroraforMongoDB”(JSON–NoSQLdatabase)
+				• AmazonQLDB					: FinancialTransactionsLedger(immutablejournal,cryptographicallyverifiable) • Amazon Managed Blockchain: managed 											  Hyperledger Fabric & Ethereum blockchains
+				• Glue							: Managed ETL (Extract Transform Load) and Data Catalog service
+				• Database Migration			: DMS
+				• Neptune						: graphdatabase
