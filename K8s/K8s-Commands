@@ -1,0 +1,13 @@
+K8s Commands
+
+kubectl get pods												-
+kubectl get services											-
+kubectl describe deploy 										- To display the resources on default namespace.
+kubectl get ns 													- To get all the namespaces.
+kubectl create ns name_of_the_namespace 						- To create a new namespace.
+kubectl apply -f filename.yaml 									- 
+kubectl apply -f filename.yaml -n name_of_the_namespace			-
+kubectl get deploy -n name_of_the_namespace						-
+kubectl get pod -n name_of_the_namespace							-
+kubectl describe pod name_of_the_pod -n name_of_the_namespace 	- To get the logs of the pod.
+kubectl get sv -n name_of_the_namespace							- To get the service info which is running or not.
