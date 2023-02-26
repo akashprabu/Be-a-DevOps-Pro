@@ -5,9 +5,16 @@ kubectl get services											-
 kubectl describe deploy 										- To display the resources on default namespace.
 kubectl get ns 													- To get all the namespaces.
 kubectl create ns name_of_the_namespace 						- To create a new namespace.
+kubectl delete ns name_of_the_namespace							- To delete a namespace. By doing this your whole infrastructure will be deleted.
 kubectl apply -f filename.yaml 									- 
 kubectl apply -f filename.yaml -n name_of_the_namespace			-
-kubectl get deploy -n name_of_the_namespace						-
-kubectl get pod -n name_of_the_namespace							-
+kubectl get deploy -n name_of_the_namespace						- To check if your deployment is ready.
+kubectl get pod -n name_of_the_namespace						-
 kubectl describe pod name_of_the_pod -n name_of_the_namespace 	- To get the logs of the pod.
-kubectl get sv -n name_of_the_namespace							- To get the service info which is running or not.
+kubectl delete pod name_of_the_pod -n name_of_the_namespace		- To delete the mentioned pod.
+kubectl get svc -n name_of_the_namespace						- To get the service info which is running or not.
+kubectl get service -n name_of_the_namespace					- To get the service info which is running or not.
+kubectl get pv -n name_of_the_namespace							- To get the persistant volume output.
+kubectl get pv -n name_of_the_namespace	-o wide					- To get better description of persistant volume output.
+kubectl get pvc -n name_of_the_namespace						- To get the persistant volume claim output.
+kubectl get pvc -n name_of_the_namespace -o wide				- To get better description of persistant volume claim output.
